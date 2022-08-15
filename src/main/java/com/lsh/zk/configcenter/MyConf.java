@@ -6,7 +6,7 @@ package com.lsh.zk.configcenter;
  */
 public class MyConf {
 
-    String conf;
+    String conf = "";
 
     public String getConf() {
         return conf;

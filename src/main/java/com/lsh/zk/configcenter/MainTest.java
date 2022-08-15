@@ -51,8 +51,8 @@ public class MainTest {
     //以上代码经过经过优化之后，直接使用自定义 WatchCallBack 代替
     @Test
     public void testConf() throws InterruptedException {
-        //创建WatchCallBack
-        WatchCallBack watchCallBack = new WatchCallBack();
+        //创建WatchCallBack，传入zk对象
+        WatchCallBack watchCallBack = new WatchCallBack(zk);
 
         //创建MyConf，set到watchCallBack，中去，如果获得了数据，则会把data数据set到MyConf中
         MyConf myConf = new MyConf();
@@ -68,8 +68,8 @@ public class MainTest {
                 //如果conf为空，说明节点可能被删除，重新调用aWait()获取数据（阻塞），等待节点被创建之后获取数据
                 watchCallBack.aWait();
             }else {
-                System.out.println(myConf.conf);
-                Thread.sleep(2000);
+                System.out.println("myConf.conf："+myConf.getConf());
+                Thread.sleep(5000);
             }
         }
     }
