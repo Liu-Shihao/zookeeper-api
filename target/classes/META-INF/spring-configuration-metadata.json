@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "name": "zookeeper.curator",
+      "type": "com.lsh.config.CuratorProperties",
+      "sourceType": "com.lsh.config.CuratorProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "zookeeper.curator.connection-timeout-ms",
+      "type": "java.lang.Integer",
+      "description": "连接超时时间",
+      "sourceType": "com.lsh.config.CuratorProperties"
+    },
+    {
+      "name": "zookeeper.curator.ip",
+      "type": "java.lang.String",
+      "description": "集群地址",
+      "sourceType": "com.lsh.config.CuratorProperties"
+    },
+    {
+      "name": "zookeeper.curator.max-retries",
+      "type": "java.lang.Integer",
+      "description": "重试机制重试次数",
+      "sourceType": "com.lsh.config.CuratorProperties"
+    },
+    {
+      "name": "zookeeper.curator.namespace",
+      "type": "java.lang.String",
+      "description": "命名空间(父节点名称)",
+      "sourceType": "com.lsh.config.CuratorProperties"
+    },
+    {
+      "name": "zookeeper.curator.session-time-out",
+      "type": "java.lang.Integer",
+      "description": "会话超时时间",
+      "sourceType": "com.lsh.config.CuratorProperties"
+    },
+    {
+      "name": "zookeeper.curator.sleep-ms-between-retry",
+      "type": "java.lang.Integer",
+      "description": "重试机制时间参数",
+      "sourceType": "com.lsh.config.CuratorProperties"
+    }
+  ],
+  "hints": []
+}
