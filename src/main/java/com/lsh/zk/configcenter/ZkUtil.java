@@ -24,6 +24,12 @@ public class ZkUtil {
 
     private static DefaultWatch defaultWatch = new DefaultWatch();
 
+    /**
+     * 获得zkClient
+     * 注意：new 出的ZooKeeper不能立即返回，还需要等待和zk server端建立连接后才能返回
+     * 需要注册一个watch：此处自定义了DefaultWatch
+     * @return
+     */
     public static ZooKeeper getZkClient(){
         try {
             defaultWatch.setCountDownLatch(countDownLatch);
@@ -35,6 +41,9 @@ public class ZkUtil {
         return zooKeeper;
     }
 
+    /**
+     * 关闭zk客户端连接
+     */
     public static void closeZK(){
         if(zooKeeper != null){
             try {

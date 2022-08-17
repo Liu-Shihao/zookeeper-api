@@ -23,17 +23,20 @@ public class WatchCallBack  implements Watcher, AsyncCallback.StatCallback, Asyn
     //注意，getData数据时需要使用zk对象，需要手动set
     ZooKeeper zooKeeper;
 
+    String path;
+
     MyConf myConf;
 
     CountDownLatch countDownLatch = new CountDownLatch(1);
 
-    public WatchCallBack(ZooKeeper zooKeeper) {
+    public WatchCallBack(ZooKeeper zooKeeper,String path) {
         this.zooKeeper = zooKeeper;
+        this.path = path;
     }
 
     public void aWait()  {
         //判断节点是否存在，会出发exists异步回调方法（方法2）
-        zooKeeper.exists("/TestConfig", this, this,"aaa");
+        zooKeeper.exists(path, this, this,"aaa");
         try {
             countDownLatch.await();//等待MyConf数据取完
         }catch (Exception e){

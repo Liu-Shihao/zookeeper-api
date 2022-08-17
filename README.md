@@ -5,9 +5,9 @@
 ##版本信息
 springboot 2.2.2.RELEASE
 org.apache.zookeeper 3.4.13
+zookeeper镜像  3.4.13
 curator   4.0.1
 
-zookeeper镜像  3.4.13
 
 
 #zk环境

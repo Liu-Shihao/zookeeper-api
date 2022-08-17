@@ -52,7 +52,7 @@ public class MainTest {
     @Test
     public void testConf() throws InterruptedException {
         //创建WatchCallBack，传入zk对象
-        WatchCallBack watchCallBack = new WatchCallBack(zk);
+        WatchCallBack watchCallBack = new WatchCallBack(zk,"/test");
 
         //创建MyConf，set到watchCallBack，中去，如果获得了数据，则会把data数据set到MyConf中
         MyConf myConf = new MyConf();
