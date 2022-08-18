@@ -1,4 +1,4 @@
-package com.lsh.zk.configcenter;
+package com.lsh.zk.test;
 
 /**
  * @author: 马士兵教育

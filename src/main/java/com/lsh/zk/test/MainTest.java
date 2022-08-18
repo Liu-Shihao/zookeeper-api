@@ -1,14 +1,12 @@
-package com.lsh.zk.configcenter;
+package com.lsh.zk.test;
 
-import org.apache.zookeeper.AsyncCallback;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 /**
  * @Author: LiuShihao
@@ -31,7 +29,7 @@ public class MainTest {
 
 
 //    @Test
-//    public void testConf(){
+//    public void testGetData(){
 //        zk.exists("/TestConfig", new Watcher() {
 //            @Override
 //            public void process(WatchedEvent event) {
@@ -50,7 +48,7 @@ public class MainTest {
 //    }
     //以上代码经过经过优化之后，直接使用自定义 WatchCallBack 代替
     @Test
-    public void testConf() throws InterruptedException {
+    public void testGetData() throws InterruptedException {
         //创建WatchCallBack，传入zk对象
         WatchCallBack watchCallBack = new WatchCallBack(zk,"/test");
 
@@ -73,4 +71,32 @@ public class MainTest {
             }
         }
     }
+
+    /**
+     * CreateMode.PERSISTENT 持久节点
+     * CreateMode.EPHEMERAL 临时节点
+     *
+     * @throws InterruptedException
+     */
+    @Test
+    public void testChildren() throws Exception {
+        String path = "/test1";
+//        WatchCallBack watchCallBack = new WatchCallBack(zk,path);
+//        zk.create(path, "admin".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        List<String> children = zk.getChildren(path, true);
+        children.forEach((x)-> {
+
+            try {
+                byte[] data = zk.getData(path+"/" + x, true, new Stat());
+                System.out.println(x+":"+new String(data));
+            } catch (KeeperException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        });
+    }
+
+
 }

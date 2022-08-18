@@ -1,4 +1,4 @@
-package com.lsh.zk.configcenter;
+package com.lsh.zk.test;
 
 import lombok.Data;
 import org.apache.zookeeper.AsyncCallback;
