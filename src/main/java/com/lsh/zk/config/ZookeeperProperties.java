@@ -19,4 +19,10 @@ public class ZookeeperProperties {
 
     public int sessionTimeOut;
 
+    public int connectionTimeoutMs;
+
+    public int sleepMsBetweenRetry;
+
+    public int maxRetries;
+
 }
